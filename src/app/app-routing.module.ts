@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: 'home', loadChildren: './task-list/task-list.module#TaskListPageModule' },
+  { path: 'home', loadChildren: './task-list/task-list.module#TaskListPageModule' },
 ];
 
 @NgModule({

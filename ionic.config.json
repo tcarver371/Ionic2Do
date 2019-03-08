@@ -1,5 +1,7 @@
 {
   "name": "Ionic2Do",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
