@@ -13,14 +13,15 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 
 export const firebaseConfig = {
-
-  apiKey: "AIzaSyD78PfQH2AooHYYFSOsWL89f5jy6WpaFUg",
+  // Initialize Firebase
+    apiKey: "AIzaSyD78PfQH2AooHYYFSOsWL89f5jy6WpaFUg",
     authDomain: "ionic2do-79910.firebaseapp.com",
     databaseURL: "https://ionic2do-79910.firebaseio.com",
     projectId: "ionic2do-79910",
     storageBucket: "ionic2do-79910.appspot.com",
     messagingSenderId: "550220208440"
-}
+};
+
 
 
 

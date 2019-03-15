@@ -37,7 +37,7 @@ this.tasks = this.taskList.valueChanges();
 			text:'Add Item',
 			handler: data => {
 				let newTaskRef = this.taskList.push(
-					{ id: '', title: data.newTask, status: 'open' }
+					{ id: '', title: data.listItem, status: 'open' }
 					);
 					newTaskRef.update( { id: newTaskRef.key } );
 			}

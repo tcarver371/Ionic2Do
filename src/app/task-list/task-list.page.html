@@ -2,8 +2,8 @@
   <ion-toolbar color = "primary">
     <ion-title>Tasks</ion-title>
 	<ion-buttons slot = "end">
-	<button ion-button icon-left (click)= "addItem()">
-		<ion-icon name = "add"></ion-icon>Add Item</button>
+	<ion-button icon-left (click)= "addItem()">
+		<ion-icon name = "add"></ion-icon>Add Item</ion-button>
   </ion-buttons>
   </ion-toolbar>
   
@@ -11,17 +11,10 @@
 
 <ion-content padding>
 	<ion-list>	
-		<ion-item-sliding #slidingItem *ngFor = "let task of tasks" #slidingItem>
+		<ion-item-sliding #slidingItem *ngFor = "let task of tasks | async">
 				<ion-item [ngClass] = "{taskDone: task.status == 'done'}">
 			{{task.title}}
-			</ion-item>
-			<ion-item-options side = "end">
-				<button ion-button icon-only (click) = "markAsDone(slidingItem, task)" color = "secondary">
-					<ion-icon name = "checkmark"></ion-icon>
-					</button>
-					<button ion-button icon-only (click) = "removeTask(slidingItem, task)" color = "danger">
-						<ion-icon name = "trash"></ion-icon>
-				</button>
+				</ion-item>
 				<ion-item-options side = "end" (ionSwipe)= "removeTask(slidingItem, task)">
 						<button ion-button icon-only expandable color = "danger" (click) = "removeTask(slidingItem, task)">
 							</button>
