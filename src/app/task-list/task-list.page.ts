@@ -10,14 +10,12 @@ import { Observable } from 'rxjs';
   templateUrl: './task-list.page.html',
   styleUrls: ['./task-list.page.scss'],
 })
-export class TaskListPage implements OnInit {
-	taskList: AngularFireList<Task>;
+export class TaskListPage {
 	tasks: Observable<any[ ]>;
-
+		taskList: AngularFireList<Task>;
   constructor(public alertCtrl: AlertController, public af: AngularFireDatabase) {
 	this.taskList = this.af.list('/tasks'); // /tasks refers to how we sort the data on Firebase.
 this.tasks = this.taskList.valueChanges();
-
 					
 	
   
@@ -37,9 +35,9 @@ this.tasks = this.taskList.valueChanges();
 			text:'Add Item',
 			handler: data => {
 				let newTaskRef = this.taskList.push(
-					{ id: '', title: data.newTask, status: 'open' }
-					);
-					newTaskRef.update( { id: newTaskRef.key } );
+{ id: '', title: data.listItem, status: 'open' }
+);
+newTaskRef.update( { id: newTaskRef.key } );
 			}
 		}]
 		});
@@ -50,11 +48,14 @@ this.tasks = this.taskList.valueChanges();
 		task.status = "done";
 		slidingItem.close()
 		this.taskList.update( task.id, task );
+
+		
 	}
 
 	removeTask(slidingItem: IonItemSliding, task: any){
 		task.status = "removed";
 		this.taskList.remove( task.id );
+		
 		slidingItem.close();
 	}
 	
